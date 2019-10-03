@@ -14,365 +14,365 @@ import {anadirTexto} from './lib/functions/text/anadir-texto';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'juego';
-  personajeSeleccionado = false;
-  nombrePersonaje = 'cristian-lara';
-  personajes = [
-    'cristian-lara',
-    'christian-chicaiza',
-    'david',
-    'oscar',
-    'carlos',
-    'ali',
-    'alexander',
-    'kevin',
-    'cristian-jumbo',
-    'choco',
-    'alexander-ninio',
-    'anali',
-    'vinicio',
-    'pao'
-  ];
-  imagenes: AnadirImagenInterface[] = [
-    {
-      tipo: 'tileset',
-      nombre: 'tileset',
-      nombreLayer: 'map',
-      nombreMapa: 'map',
-      url: 'assets/mundos/t1.png',
-      urlNombreArchivo: 't1',
-      posX: 0,
-      posY: 0,
-      sizeX: 16,
-      sizeY: 16,
-      index: 0,
-      // levelCSV: 'assets/mundos/01.csv',
-      levelJSON: 'assets/mundos/02.json',
-      layerPositions: [
-        // {
-        //   nombre: 'Frente',
-        //   posX: 0,
-        //   posY: 0,
-        // },
-        {
-          nombre: 'map',
-          posX: 0,
-          posY: 0,
-        }
-        // , {
-        //   nombre: 'Fondo',
-        //   posX: 0,
-        //   posY: 0,
-        // },
+  /* title = 'juego';
+   personajeSeleccionado = false;
+   nombrePersonaje = 'cristian-lara';
+   personajes = [
+     'cristian-lara',
+     'christian-chicaiza',
+     'david',
+     'oscar',
+     'carlos',
+     'ali',
+     'alexander',
+     'kevin',
+     'cristian-jumbo',
+     'choco',
+     'alexander-ninio',
+     'anali',
+     'vinicio',
+     'pao'
+   ];
+   imagenes: AnadirImagenInterface[] = [
+     {
+       tipo: 'tileset',
+       nombre: 'tileset',
+       nombreLayer: 'map',
+       nombreMapa: 'map',
+       url: 'assets/mundos/t1.png',
+       urlNombreArchivo: 't1',
+       posX: 0,
+       posY: 0,
+       sizeX: 16,
+       sizeY: 16,
+       index: 0,
+       // levelCSV: 'assets/mundos/01.csv',
+       levelJSON: 'assets/mundos/02.json',
+       layerPositions: [
+         // {
+         //   nombre: 'Frente',
+         //   posX: 0,
+         //   posY: 0,
+         // },
+         {
+           nombre: 'map',
+           posX: 0,
+           posY: 0,
+         }
+         // , {
+         //   nombre: 'Fondo',
+         //   posX: 0,
+         //   posY: 0,
+         // },
 
-      ]
+       ]
 
-      // level: [
-      //   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 4, 5, 6, 7, 8, 9, 10, 11],
-      //   [12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
-      //   [22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
-      //
-      // ]
-    },
-    {
-      tipo: 'player',
-      nombre: 'dude',
-      url: 'assets/dude3.png',
-      posX: 120,
-      posY: 560,
-      frameWidth: 32,
-      frameHeight: 48,
-      bounce: 0.2,
-      collideWorldBounds: true,
-      animaciones: [
-        {
-          key: 'right',
-          frames: (scene: Phaser.Game, imagen: AnadirImagenInterface) => {
-            return scene.anims.generateFrameNumbers(imagen.nombre,
-              {
-                start: 5,
-                end: 8
-              });
-          },
-          frameRate: 10,
-          repeat: -1
-        },
-        {
-          key: 'left',
-          frames: (scene: Phaser.Game, imagen: AnadirImagenInterface) => {
-            return scene.anims.generateFrameNumbers(imagen.nombre,
-              {
-                start: 0,
-                end: 3
-              });
-          },
-          frameRate: 10,
-          repeat: -1
-        },
-        {
-          key: 'turn',
-          frames: () => [{key: 'dude', frame: 4}],
-          frameRate: 20,
-        },
+       // level: [
+       //   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 4, 5, 6, 7, 8, 9, 10, 11],
+       //   [12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+       //   [22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+       //
+       // ]
+     },
+     {
+       tipo: 'player',
+       nombre: 'dude',
+       url: 'assets/dude3.png',
+       posX: 120,
+       posY: 560,
+       frameWidth: 32,
+       frameHeight: 48,
+       bounce: 0.2,
+       collideWorldBounds: true,
+       animaciones: [
+         {
+           key: 'right',
+           frames: (scene: Phaser.Game, imagen: AnadirImagenInterface) => {
+             return scene.anims.generateFrameNumbers(imagen.nombre,
+               {
+                 start: 5,
+                 end: 8
+               });
+           },
+           frameRate: 10,
+           repeat: -1
+         },
+         {
+           key: 'left',
+           frames: (scene: Phaser.Game, imagen: AnadirImagenInterface) => {
+             return scene.anims.generateFrameNumbers(imagen.nombre,
+               {
+                 start: 0,
+                 end: 3
+               });
+           },
+           frameRate: 10,
+           repeat: -1
+         },
+         {
+           key: 'turn',
+           frames: () => [{key: 'dude', frame: 4}],
+           frameRate: 20,
+         },
 
-      ]
-    },
-    {
-      tipo: 'repeat',
-      nombre: 'star',
-      url: 'assets/star.png',
-      imagenRepeat: [
-        {
-          posX: 300,
-          posY: 550,
-          stepX: 35,
-          repeat: 10,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 220,
-          posY: 450,
-          stepX: 35,
-          repeat: 15,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 45,
-          posY: 360,
-          stepX: 35,
-          repeat: 22,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 45,
-          posY: 280,
-          stepX: 35,
-          repeat: 4,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 200,
-          posY: 260,
-          stepX: 35,
-          repeat: 18,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 25,
-          posY: 180,
-          stepX: 35,
-          repeat: 22,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 25,
-          posY: 35,
-          stepX: 35,
-          repeat: 22,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 45,
-          posY: 520,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-      ]
+       ]
+     },
+     {
+       tipo: 'repeat',
+       nombre: 'star',
+       url: 'assets/star.png',
+       imagenRepeat: [
+         {
+           posX: 300,
+           posY: 550,
+           stepX: 35,
+           repeat: 10,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 220,
+           posY: 450,
+           stepX: 35,
+           repeat: 15,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 45,
+           posY: 360,
+           stepX: 35,
+           repeat: 22,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 45,
+           posY: 280,
+           stepX: 35,
+           repeat: 4,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 200,
+           posY: 260,
+           stepX: 35,
+           repeat: 18,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 25,
+           posY: 180,
+           stepX: 35,
+           repeat: 22,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 25,
+           posY: 35,
+           stepX: 35,
+           repeat: 22,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 45,
+           posY: 520,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+       ]
 
-    },
-    {
-      tipo: 'repeat',
-      nombre: 'bomb',
-      url: 'assets/bomb.png',
-      imagenRepeat: [
-        {
-          posX: 70,
-          posY: 550,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 590,
-          posY: 310,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 640,
-          posY: 170,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 650,
-          posY: 70,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 160,
-          posY: 70,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 130,
-          posY: 500,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 50,
-          posY: 520,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-        {
-          posX: 39,
-          posY: 70,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-      ]
-    },
-    {
-      tipo: 'repeat',
-      nombre: 'manti',
-      url: 'assets/manti.png',
-      imagenRepeat: [
-        {
-          posX: 10,
-          posY: 10,
-          stepX: 35,
-          repeat: 0,
-          floatBetween: {
-            min: 0.4,
-            max: 0.8
-          }
-        },
-      ]
-    },
-  ];
-  textos: AnadirTexto[] = [
-    {
-      name: 'score',
-      fontSize: '16px',
-      posX: 630,
-      posY: 10,
-      text: 'Puntuación : 0',
-      color: '#ffffff'
-    },
-    {
-      name: 'tiempo',
-      fontSize: '16px',
-      posX: 630,
-      posY: 40,
-      text: 'Segundos : 0',
-      color: '#ffffff'
-    },
-    {
-      name: 'hit-bomb-text',
-      fontSize: '46px',
-      posX: 150,
-      posY: 300,
-      text: 'PERDISTE TUS PUNTOS',
-      color: '#ff0004'
-    },
-    {
-      name: 'collect-manti',
-      fontSize: '36px',
-      posX: 150,
-      posY: 100,
-      text: 'Consigue el ultimo Manti',
-      color: '#fff92a'
-    }
-  ];
-  sonidos: AnadirSonidos[] = [
-    {
-      nombre: 'cristian-lara',
-      audios: ['assets/music/cristian-lara.mp3'],
-      loop: true,
-    },
-    {
-      nombre: 'hit-bomb',
-      audios: ['assets/music/hit-bomb.mp3'],
-      loop: false,
-    },
-    {
-      nombre: 'collect-star',
-      audios: ['assets/music/collect-star.mp3'],
-      loop: false,
-    },
-    {
-      nombre: 'manti',
-      audios: ['assets/music/manti.mp3'],
-      loop: false,
-    },
-    {
-      nombre: 'win',
-      audios: ['assets/music/win.mp3'],
-      loop: false,
-    }
-  ];
+     },
+     {
+       tipo: 'repeat',
+       nombre: 'bomb',
+       url: 'assets/bomb.png',
+       imagenRepeat: [
+         {
+           posX: 70,
+           posY: 550,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 590,
+           posY: 310,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 640,
+           posY: 170,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 650,
+           posY: 70,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 160,
+           posY: 70,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 130,
+           posY: 500,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 50,
+           posY: 520,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+         {
+           posX: 39,
+           posY: 70,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+       ]
+     },
+     {
+       tipo: 'repeat',
+       nombre: 'manti',
+       url: 'assets/manti.png',
+       imagenRepeat: [
+         {
+           posX: 10,
+           posY: 10,
+           stepX: 35,
+           repeat: 0,
+           floatBetween: {
+             min: 0.4,
+             max: 0.8
+           }
+         },
+       ]
+     },
+   ];
+   textos: AnadirTexto[] = [
+     {
+       name: 'score',
+       fontSize: '16px',
+       posX: 630,
+       posY: 10,
+       text: 'Puntuación : 0',
+       color: '#ffffff'
+     },
+     {
+       name: 'tiempo',
+       fontSize: '16px',
+       posX: 630,
+       posY: 40,
+       text: 'Segundos : 0',
+       color: '#ffffff'
+     },
+     {
+       name: 'hit-bomb-text',
+       fontSize: '46px',
+       posX: 150,
+       posY: 300,
+       text: 'PERDISTE TUS PUNTOS',
+       color: '#ff0004'
+     },
+     {
+       name: 'collect-manti',
+       fontSize: '36px',
+       posX: 150,
+       posY: 100,
+       text: 'Consigue el ultimo Manti',
+       color: '#fff92a'
+     }
+   ];
+   sonidos: AnadirSonidos[] = [
+     {
+       nombre: 'cristian-lara',
+       audios: ['assets/music/cristian-lara.mp3'],
+       loop: true,
+     },
+     {
+       nombre: 'hit-bomb',
+       audios: ['assets/music/hit-bomb.mp3'],
+       loop: false,
+     },
+     {
+       nombre: 'collect-star',
+       audios: ['assets/music/collect-star.mp3'],
+       loop: false,
+     },
+     {
+       nombre: 'manti',
+       audios: ['assets/music/manti.mp3'],
+       loop: false,
+     },
+     {
+       nombre: 'win',
+       audios: ['assets/music/win.mp3'],
+       loop: false,
+     }
+   ];*/
   config = {
-    backgroundColor: '#422835',
+    backgroundColor: '#0000000',
     parent: 'juego',
     type: Phaser.AUTO,
     width: 800,
@@ -388,11 +388,6 @@ export class AppComponent implements OnInit {
         debug: false
       }
     },
-    scene: {
-      preload: preload(this),
-      create: create(this),
-      update: update(this)
-    },
     audio: {
       disableWebAudio: true
     }
@@ -405,12 +400,12 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-
-
+  ngOnInit() {
+    console.log('va a iniciar el juego');
+    this.game = new Phaser.Game(this.config);
   }
 
-  reiniciar() {
+  /*reiniciar() {
     this.personajeSeleccionado = !this.personajeSeleccionado;
 
     this.nombrePersonaje = 'cristian-lara';
@@ -708,9 +703,9 @@ function calcularTiempo(scene: Phaser.Scene | any | CustomObjects) {
       calcularTiempo(scene);
     }, 1000
   );
+}*/
+
 }
-
-
 // function anadirPlayer(scene: Phaser.Scene | any) {
 //   const player = scene.physics.add.sprite(100, 450, 'dude');
 //   player.setBounce(0.2);
