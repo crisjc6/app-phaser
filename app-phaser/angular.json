@@ -26,7 +26,11 @@
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/phaser/dist/phaser.js",
+              "node_modules/phaser/dist/phaser.min.js",
+              "node_modules/phaser/dist/phaser-arcade-physics.js"
+            ]
           },
           "configurations": {
             "production": {
